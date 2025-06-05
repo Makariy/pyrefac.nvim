@@ -1,0 +1,17 @@
+local M = {}
+
+function M.setup(opts)
+    opts = opts or {} 
+
+    local default_opts = {
+        pyrefac_path = 'pyrefac',
+       	format_command = nil
+    }
+
+    local config = vim.tbl_deep_extend('force', {}, default_opts, opts)
+    vim.g.pyrefac_config = config
+    vim.print("Here all loaded")
+end
+
+return M 
+
