@@ -10,7 +10,6 @@ function M.setup(opts)
 
     local config = vim.tbl_deep_extend('force', {}, default_opts, opts)
     vim.g.pyrefac_config = config
-    vim.print("Here all loaded")
 end
 
 return M 
