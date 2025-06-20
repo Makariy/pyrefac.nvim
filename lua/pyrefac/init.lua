@@ -4,7 +4,7 @@ function M.setup(opts)
     opts = opts or {} 
 
     local default_opts = {
-        pyrefac_path = 'pyrefac',
+        pyrefac_command = 'pyrefac',
        	format_command = nil
     }
 

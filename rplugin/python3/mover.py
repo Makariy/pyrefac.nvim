@@ -9,10 +9,10 @@ class PyrefacMover:
     def __init__(
         self,
         nvim: Nvim,
-        pyrefac_path: str,
+        pyrefac_command: str,
     ) -> None:
         self._nvim = nvim
-        self._pyrefac_path = pyrefac_path
+        self._pyrefac_command = pyrefac_command
 
     def move_symbols(
         self,
@@ -36,7 +36,7 @@ class PyrefacMover:
 
     def _run_move(self, symbol: str, source: str, dest: str, cwd: str) -> list[str]:
         command = [
-            self._pyrefac_path,
+            *self._pyrefac_command.split(),
             "--show-files",
             "move-symbol",
             source,

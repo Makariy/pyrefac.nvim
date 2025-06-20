@@ -15,10 +15,13 @@ from utils import (
 
 class PyrefacMoveExecutor:
     def __init__(
-        self, nvim: Nvim, pyrefac_path: str, format_command: str | None = None
+        self,
+        nvim: Nvim,
+        pyrefac_command: str,
+        format_command: str | None = None
     ) -> None:
         self._nvim = nvim
-        self._mover = PyrefacMover(nvim, pyrefac_path)
+        self._mover = PyrefacMover(nvim, pyrefac_command)
         self._cleaner = PyrefacCleaner(
             nvim=self._nvim,
             formatter=PyrefacFormatter(format_command),

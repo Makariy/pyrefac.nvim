@@ -9,7 +9,7 @@ class PyrefacPlugin:
         self._nvim = nvim
         self._config: dict[str, str] = cast(
             dict[str, Any],
-            self._nvim.vars.get("pyrefac_config") or {"pyrefac_path": "pyrefac"},
+            self._nvim.vars.get("pyrefac_config") or {"pyrefac_command": "pyrefac"},
         )
 
     @pynvim.command("PyrefacMove", range=True, sync=True)
@@ -20,7 +20,7 @@ class PyrefacPlugin:
         try:
             move_executor.PyrefacMoveExecutor(
                 nvim=self._nvim,
-                pyrefac_path=self._config["pyrefac_path"],
+                pyrefac_command=self._config["pyrefac_command"],
                 format_command=self._config.get("format_command"),
             ).execute(selection)
         except Exception as e:
